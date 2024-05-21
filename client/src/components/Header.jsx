@@ -9,11 +9,6 @@ function Header(){
         document.querySelector(".navbar-nav").classList.toggle('active')
     }
 
-    // function handleAbout(){
-    //     navigate("/Insert")
-    // }
-    
-
     return(
         <header className="App-header">
             <nav className="navbar">
