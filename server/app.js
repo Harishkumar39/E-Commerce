@@ -9,7 +9,6 @@ const crypto = require('crypto')
 
 const {MongoClient} = require('mongodb');
 const { Collection } = require('mongoose')
-// let { Collection } = require('mongoose');
 
 const url="mongodb://127.0.0.1:27017/"
 const dbname = "ECommerce"
@@ -34,21 +33,6 @@ const storage = multer.diskStorage({
 
 const upload = multer({storage})
 
-
-// const writeDataToFile = (data) => {
-//     const filepth = 'products.js';
-//     const filecnt = `export const products = [${JSON.stringify(data, null, 2)}]`
-
-//     fs.writeFile(filepth, filecnt, (err)=>{
-//         if(err){
-//             console.log("Error");
-//             return;
-//         }
-//         console.log("Data has been written");
-//     })
-// }
-
-
 let list1 = []
 let cartList = []
 let id=0, cartId=0
@@ -56,8 +40,6 @@ let id=0, cartId=0
 let db = null
 let collection = null
 let dbdata = null
-
-const api = "3902@7299&123"
 
 app.use(cors({
     origin:'http://localhost:3000',
@@ -86,10 +68,6 @@ app.post('/Cart', async (req, res) => {
         collection = db.collection(dbcollection)
         const newItem = req.body;
         await insertIntoCollection(newItem)
-        console.log('Length '+newItem.length);
-        console.log("Here");
-        console.log(newItem);
-        // cartList.push(newItem);  
         res.json({ success: true, newItem });
     } catch (error) {
         console.log("Error "+error);
@@ -139,19 +117,16 @@ app.post("/uploads", upload.single('file'), async(req, res)=>{
 })
 
 app.post("/removeFromCart", async (req, res)=>{
-    // dbcollection = "cart"
-    // collection = db.collection(dbcollection)
-    // console.log(req.body.index);
     await deleteFromCollection(req.body.index)
     res.json({message:"success"})
 })
 
 const razorpay = new Razorpay({
-    key_id: 'rzp_test_UHvz6ZssWrtKoB',
-    key_secret: 'frrBLsR9TGAwrcw8Us6ltGTM'
+    key_id: 'Your razorpay ket id',
+    key_secret: 'Your razorpay secret key'
 });  
 
-//zrfxpmzfnpnhrytz - harish200903@gmail.com
+
 app.post('/cart/checkout', async(req, res)=>{
     await deleteCart()
     const {totalAmount, currency="INR"} = req.body;
@@ -304,13 +279,13 @@ async function mailing(mail, sub, txt){
     var transporter = mailer.createTransport({
         service:'gmail',
         auth:{
-            user:'harish200903@gmail.com',
-            pass:'zrfxpmzfnpnhrytz'
+            user:'Your Email id',
+            pass:'Your App password'
         }
     })
 
     var mails = {
-        from: 'harish200903@gmail.com',
+        from: 'Your Email id',
         to: mail,
         subject: sub,
         text: txt
@@ -326,17 +301,3 @@ async function mailing(mail, sub, txt){
     })
 }
 
-//Mics
-
-// try{
-//     const dt = await collection.insertOne({id, name, price})
-//     console.log("Inserted Successfully!!!");
-//     console.log(dt);
-//     list1.push({id, name, price});
-//     console.log("list");
-//     console.log(list1);
-//     res.json({message:[name, price]})
-    
-// }catch(error){
-//     console.log("Error " + error);
-// }
