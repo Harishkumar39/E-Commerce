@@ -88,8 +88,8 @@ function Checkout(props) {
       console.log(Response.data);
       const {orderID, amount, curr} = Response.data
       var options = {
-        key: "rzp_test_UHvz6ZssWrtKoB",
-        key_secret:"frrBLsR9TGAwrcw8Us6ltGTM",
+        key: "Your razorpay key id",
+        key_secret:"Your razorpay secret key",
         amount: amount,
         currency: curr,
         order_id: orderID,
