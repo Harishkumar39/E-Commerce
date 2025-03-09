@@ -55,7 +55,7 @@ function Card(props) {
       </div>
       <div className='bottom-card'>
         <div className='Quantity'>
-          <p>Qty : </p>
+          <p>Qty   </p>
           <input type="number" className="qty" id='qty' min={1} value={qty} onChange={(e)=>{setQty(e.target.value)}} onClick={handleQty} />
         </div>
         <div className='cart-btn'>

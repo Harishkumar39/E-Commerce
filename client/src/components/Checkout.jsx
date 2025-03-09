@@ -151,14 +151,14 @@ function Checkout(props) {
   return (
     <div className='checkout-container'>
       <ToastContainer/>
-      <h2>Checkout</h2>
+      <h1>Checkout</h1>
       <div className='checkout-details'>
         <div className='order-summary'>
           <h3>Order Summary</h3>
           <ul>
             {cartItems.map((item, index) => (
               <li key={index}>
-                {item.name} - Qty: {item.qty}
+                {item.name} - Qty {item.qty}
               </li>
             ))}
           </ul>

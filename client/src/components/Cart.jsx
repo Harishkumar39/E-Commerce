@@ -75,7 +75,7 @@ function Cart() {
         <>
          
           {cartItm.map((item, index) => (
-            <div key={index}>
+            <div className='items' key={index}>
               <Card key={item.id} itemNo={index} item={item} onQtyChange={handleQtyCh}/>
             </div>
           ))}
