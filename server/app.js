@@ -11,7 +11,8 @@ const {MongoClient} = require('mongodb');
 const { Collection } = require('mongoose')
 // let { Collection } = require('mongoose');
 
-const url="mongodb://127.0.0.1:27017/"
+// const url="mongodb://127.0.0.1:27017/"
+const url = "mongodb+srv://harish3902k:x6jlFwuXiWyUFsLj@cluster0.fvfr5.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0"
 const dbname = "ECommerce"
 
 let dbcollection = "products"
