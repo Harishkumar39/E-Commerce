@@ -6,18 +6,18 @@
       "use": "@vercel/react"
     },
     {
-      "src": "server/index.js",  // or the entry file for your server
+      "src": "server/index.js", 
       "use": "@vercel/node"
     }
   ],
   "routes": [
     {
       "src": "/(.*)",
-      "dest": "/client/build/$1"  // Redirect requests to the React app
+      "dest": "/client/build/$1" 
     },
     {
       "src": "/api/(.*)",
-      "dest": "/server/$1"  // Handle API routes with the server
+      "dest": "/server/$1" 
     }
   ]
 }
